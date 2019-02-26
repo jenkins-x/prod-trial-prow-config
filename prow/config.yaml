@@ -1,0 +1,58 @@
+branch-protection:
+  protect: true
+owners_dir_blacklist:
+  default: null
+  repos: null
+prowjob_namespace: jx
+pod_namespace: jx
+push_gateway: {}
+sinker:
+  resync_period: 5m
+  max_prowjob_age: 4h
+  max_pod_age: 4h
+
+periodics:
+
+postsubmits:
+
+presubmits:
+
+  jenkins-x/jx:
+  - agent: tekton
+    always_run: false
+    pipeline_run_spec:
+      serviceAccountName: tekton-bot
+      trigger:
+        type: manual
+      resources:
+      - name: example-source
+        resourceRef:
+          name: example-source
+      - name: example-image
+        resourceRef:
+          name: example-image
+      pipelineRef:
+        name: example-pipeline
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(\s+|$)
+
+tide:
+  sync_period: 1m
+  status_update_period: 1m
+  context_options:
+    from-branch-protection: true
+    skip-unknown-contexts: false
+  queries:
+  - labels:
+    - approved
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x/dummy
+  target_url: https://core.jx.cd.jenkins-x.io/teams/jx/pipelines

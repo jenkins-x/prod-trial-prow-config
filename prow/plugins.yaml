@@ -1,0 +1,52 @@
+triggers:
+- repos:
+  - jenkins-x
+  trusted_org: jenkins-x
+  only_org_members: true
+approve:
+- lgtm_acts_as_approve: true
+  repos:
+  - jenkins-x
+  require_self_approval: true
+blunderbuss: {}
+cat: {}
+lgtm:
+- repos:
+  - jenkins-x/jx
+  review_acts_as_lgtm: true
+config_updater:
+  maps:
+    prow/config.yaml:
+      name: config
+    prow/plugins.yaml:
+      name: plugins
+heart:
+  adorees:
+  - jenkins-x-bot
+
+owners: {}
+external_plugins: {}
+plugins:
+  rawlingsj/prod-trial-prow-config:
+  - config-updater
+  - size
+  - shrug
+  - skip
+  - yuks
+  jenkins-x/jx:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+requiresig: {}
+sigmention: {}
+slack: {}
