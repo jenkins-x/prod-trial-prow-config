@@ -313,4 +313,4 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jx
-  target_url: https://core.jx.tekton.rawlings.it
+  target_url: https://core.jx.tekton.rawlings.it/foo
