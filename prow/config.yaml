@@ -1,5 +1,31 @@
 branch-protection:
   protect: true
+  orgs:
+    jenkins-x-charts:
+      required_status_checks:
+        contexts: ["tekton"]
+    jenkins-x:
+      repos:
+        jx:
+          required_status_checks:
+            contexts:
+              ["bdd","integration"]
+        jenkins-x-builders:
+          required_status_checks:
+            contexts: ["tekton"]
+        jenkins-x-serverless:
+          required_status_checks:
+            contexts: ["tekton"]
+        jenkins-x-builders-base:
+          required_status_checks:
+            contexts: ["tekton"]
+        dev-env:
+          required_status_checks:
+            contexts: ["tekton"]
+    cb-kubecd:
+      required_status_checks:
+        contexts: ["tekton"]
+
 owners_dir_blacklist:
   default: null
   repos: null
@@ -11,40 +37,285 @@ sinker:
   max_prowjob_age: 4h
   max_pod_age: 4h
 
-periodics:
+periodics: {}
 
 postsubmits:
+  jenkins-x/jenkins-x-serverless:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 
-presubmits:
+  jenkins-x/dev-env:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/prow:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/tekton:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/environment-controller:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/openshift-namespace-rbac-chart:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/athens-proxy:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/vault-operator:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/knative-build:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x-charts/jx-build-templates:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x/jenkins-x-builders:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+  jenkins-x/jenkins-x-builders-base:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 
   jenkins-x/jx:
   - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+
+presubmits:
+  jenkins-x/jenkins-x-versions:
+  - agent: tekton
     always_run: false
-    pipeline_run_spec:
-      serviceAccountName: tekton-bot
-      trigger:
-        type: manual
-      resources:
-      - name: example-source
-        resourceRef:
-          name: example-source
-      - name: example-image
-        resourceRef:
-          name: example-image
-      pipelineRef:
-        name: example-pipeline
+    context: static
+    name: static
+    rerun_command: /test static
+    trigger: (?m)^/test( all| this| static),?(s+|$)
+
+  - agent: tekton
+    always_run: false
+    context: prow
+    name: prow
+    rerun_command: /test prow
+    trigger: (?m)^/test( all| this| prow),?(s+|$)
+
+  - agent: tekton
+    always_run: false
+    context: gitops
+    name: gitops
+    rerun_command: /test gitops
+    trigger: (?m)^/test( all| gitops),?(s+|$)
+
+  - agent: tekton
+    always_run: false
     context: tekton
     name: tekton
     rerun_command: /test tekton
-    trigger: (?m)^/test( all| tekton),?(\s+|$)
+    trigger: (?m)^/test( all| tekton),?(s+|$)
+
+  - agent: tekton
+    always_run: false
+    context: ng
+    name: ng
+    rerun_command: /test ng
+    trigger: (?m)^/test( all| ng),?(s+|$)
+
+  jenkins-x/jx:
+  - agent: tekton
+    always_run: true
+    context: bdd
+    name: bdd
+    rerun_command: /test bdd
+    trigger: (?m)^/test( all| bdd),?(s+|$)
+
+  - agent: tekton
+    always_run: true
+    context: integration
+    name: integration
+    rerun_command: /test integration
+    trigger: (?m)^/test( all| integration),?(s+|$)
+
+  rawlingsj/jx:
+  - agent: tekton
+    always_run: false
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
+
+  jenkins-x/dev-env:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
+
+  jenkins-x/jenkins-x-serverless:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/prow:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/tekton:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/environment-controller:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/openshift-namespace-rbac-chart:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/athens-proxy:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test(all| this),?(s+|$)
+
+  jenkins-x-charts/knative-build:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/vault-operator:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton  
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x-charts/jx-build-templates:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x/jenkins-x-builders:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+
+  jenkins-x/jenkins-x-builders-base:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 
 tide:
-  sync_period: 1m
+  sync_period: 2m
   status_update_period: 1m
   context_options:
     from-branch-protection: true
     skip-unknown-contexts: false
   queries:
+  - labels:
+    - updatebot
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x/jenkins-x-serverless
+    - jenkins-x/jenkins-x-builders
+    - jenkins-x/jenkins-x-builders-base
+    - jenkins-x-charts/prow
+    - jenkins-x-charts/tekton
+    - jenkins-x-charts/environment-controller
+    - jenkins-x-charts/openshift-namespace-rbac-chart
+    - jenkins-x-charts/athens-proxy
+    - jenkins-x-charts/vault-operator
+    - jenkins-x-charts/knative-build
+    - jenkins-x-charts/jx-build-templates
+    - jenkins-x/jx
+    - jenkins-x/dev-env
   - labels:
     - approved
     missingLabels:
@@ -55,4 +326,30 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/dummy
-  target_url: https://core.jx.cd.jenkins-x.io/teams/jx/pipelines
+    - jenkins-x/jenkins-x-serverless
+    - jenkins-x/jenkins-x-builders
+    - jenkins-x/jenkins-x-builders-base
+    - jenkins-x-charts/prow
+    - jenkins-x-charts/tekton
+    - jenkins-x-charts/environment-controller
+    - jenkins-x-charts/openshift-namespace-rbac-chart
+    - jenkins-x-charts/athens-proxy
+    - jenkins-x-charts/vault-operator
+    - jenkins-x-charts/knative-build
+    - jenkins-x-charts/jx-build-templates 
+    - jenkins-x/dev-env
+
+  - labels:
+    - approved
+    - lgtm
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - jenkins-x/jx
+
+  target_url: https://core.jx.tekton.rawlings.it/teams/jx/pipelines
+
