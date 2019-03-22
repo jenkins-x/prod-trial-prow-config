@@ -1,305 +1,304 @@
-plugins.yaml:
-  triggers:
-  - repos:
-    - jenkins-x/jenkins-x-versions
-    - jenkins-x/jx
-    - jenkins-x/jenkins-x-serverless
-    - jenkins-x/jenkins-x-builders
-    - jenkins-x/jenkins-x-builders-base
-    - jenkins-x-charts/prow
-    - jenkins-x-charts/nexus
-    - jenkins-x-charts/tekton
-    - jenkins-x-charts/environment-controller
-    - jenkins-x-charts/openshift-namespace-rbac-chart
-    - jenkins-x-charts/athens-proxy
-    - jenkins-x-charts/vault-operator
-    - jenkins-x-charts/knative-build
-    - jenkins-x-charts/jx-build-templates
-    - jenkins-x/dev-env
-    trusted_org: jenkins-x
-    only_org_members: true
-  approve:
-  - lgtm_acts_as_approve: true
-    repos:
-    - jenkins-x/jenkins-x-versions
-    - jenkins-x/jenkins-x-serverless
-    - jenkins-x/jenkins-x-builders
-    - jenkins-x/jenkins-x-builders-base
-    - jenkins-x-charts/prow
-    - jenkins-x/jx
-    - jenkins-x-charts/tekton
-    - jenkins-x-charts/nexus
-    - jenkins-x-charts/environment-controller
-    - jenkins-x-charts/openshift-namespace-rbac-chart
-    - jenkins-x-charts/athens-proxy
-    - jenkins-x-charts/vault-operator
-    - jenkins-x-charts/knative-build
-    - jenkins-x-charts/jx-build-templates
-    require_self_approval: true
-  blunderbuss: {}
-  cat: {}
-  lgtm:
-  - repos:
-    - jenkins-x/jenkins-x-versions
-    review_acts_as_lgtm: true
-  config_updater:
-    maps:
-      prow/config.yaml:
-        name: config
-      prow/plugins.yaml:
-        name: plugins
-  heart:
-    adorees:
-    - jenkins-x-bot
-  owners: {}
-  external_plugins: {}
-  plugins:
-    jenkins-x/prod-trial-prow-config:
-    - config-updater
-    - size
-    - shrug
-    - skip
-    - yuks
-    jenkins-x/jenkins-x-versions:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x/dev-env:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x/jx:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/prow:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/nexus:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/tekton:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/environment-controller:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/openshift-namespace-rbac-chart:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/athens-proxy:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/vault-operator:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/knative-build:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x-charts/jx-build-templates:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x/jenkins-x-serverless:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x/jenkins-x-builders:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    jenkins-x/jenkins-x-builders-base:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-    cb-kubecd/multi-context-test:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
-  requiresig: {}
-  sigmention: {}
-  slack: {}
+triggers:
+- repos:
+  - jenkins-x/jenkins-x-versions
+  - jenkins-x/jx
+  - jenkins-x/jenkins-x-serverless
+  - jenkins-x/jenkins-x-builders
+  - jenkins-x/jenkins-x-builders-base
+  - jenkins-x-charts/prow
+  - jenkins-x-charts/nexus
+  - jenkins-x-charts/tekton
+  - jenkins-x-charts/environment-controller
+  - jenkins-x-charts/openshift-namespace-rbac-chart
+  - jenkins-x-charts/athens-proxy
+  - jenkins-x-charts/vault-operator
+  - jenkins-x-charts/knative-build
+  - jenkins-x-charts/jx-build-templates
+  - jenkins-x/dev-env
+  trusted_org: jenkins-x
+  only_org_members: true
+approve:
+- lgtm_acts_as_approve: true
+  repos:
+  - jenkins-x/jenkins-x-versions
+  - jenkins-x/jenkins-x-serverless
+  - jenkins-x/jenkins-x-builders
+  - jenkins-x/jenkins-x-builders-base
+  - jenkins-x-charts/prow
+  - jenkins-x/jx
+  - jenkins-x-charts/tekton
+  - jenkins-x-charts/nexus
+  - jenkins-x-charts/environment-controller
+  - jenkins-x-charts/openshift-namespace-rbac-chart
+  - jenkins-x-charts/athens-proxy
+  - jenkins-x-charts/vault-operator
+  - jenkins-x-charts/knative-build
+  - jenkins-x-charts/jx-build-templates
+  require_self_approval: true
+blunderbuss: {}
+cat: {}
+lgtm:
+- repos:
+  - jenkins-x/jenkins-x-versions
+  review_acts_as_lgtm: true
+config_updater:
+  maps:
+    prow/config.yaml:
+      name: config
+    prow/plugins.yaml:
+      name: plugins
+heart:
+  adorees:
+  - jenkins-x-bot
+owners: {}
+external_plugins: {}
+plugins:
+  jenkins-x/prod-trial-prow-config:
+  - config-updater
+  - size
+  - shrug
+  - skip
+  - yuks
+  jenkins-x/jenkins-x-versions:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/dev-env:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jx:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/prow:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/nexus:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/tekton:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/environment-controller:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/openshift-namespace-rbac-chart:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/athens-proxy:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/vault-operator:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/knative-build:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-charts/jx-build-templates:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-serverless:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-builders:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-builders-base:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  cb-kubecd/multi-context-test:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+requiresig: {}
+sigmention: {}
+slack: {}

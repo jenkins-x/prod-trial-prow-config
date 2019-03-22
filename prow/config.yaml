@@ -25,7 +25,6 @@ branch-protection:
     cb-kubecd:
       required_status_checks:
         contexts: ["tekton"]
-
 owners_dir_blacklist:
   default: null
   repos: null
@@ -36,9 +35,7 @@ sinker:
   resync_period: 5m
   max_prowjob_age: 4h
   max_pod_age: 4h
-
-periodics: {}
-
+periodics:
 postsubmits:
   jenkins-x/jenkins-x-serverless:
   - agent: tekton
@@ -46,91 +43,78 @@ postsubmits:
     name: tekton
     branches:
     - master
-
   jenkins-x/dev-env:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/prow:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/tekton:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/environment-controller:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/openshift-namespace-rbac-chart:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/athens-proxy:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/vault-operator:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/knative-build:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x-charts/jx-build-templates:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x/jenkins-x-builders:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x/jenkins-x-builders-base:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
   jenkins-x/jx:
   - agent: tekton
     context: tekton
     name: tekton
     branches:
     - master
-
 presubmits:
   jenkins-x/jenkins-x-versions:
   - agent: tekton
@@ -139,35 +123,30 @@ presubmits:
     name: static
     rerun_command: /test static
     trigger: (?m)^/test( all| this| static),?(s+|$)
-
   - agent: tekton
     always_run: false
     context: prow
     name: prow
     rerun_command: /test prow
     trigger: (?m)^/test( all| this| prow),?(s+|$)
-
   - agent: tekton
     always_run: false
     context: gitops
     name: gitops
     rerun_command: /test gitops
     trigger: (?m)^/test( all| gitops),?(s+|$)
-
   - agent: tekton
     always_run: false
     context: tekton
     name: tekton
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
-
   - agent: tekton
     always_run: false
     context: ng
     name: ng
     rerun_command: /test ng
     trigger: (?m)^/test( all| ng),?(s+|$)
-
   jenkins-x/jx:
   - agent: tekton
     always_run: true
@@ -175,14 +154,12 @@ presubmits:
     name: bdd
     rerun_command: /test bdd
     trigger: (?m)^/test( all| bdd),?(s+|$)
-
   - agent: tekton
     always_run: true
     context: integration
     name: integration
     rerun_command: /test integration
     trigger: (?m)^/test( all| integration),?(s+|$)
-
   rawlingsj/jx:
   - agent: tekton
     always_run: false
@@ -190,7 +167,6 @@ presubmits:
     name: tekton
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
-
   jenkins-x/dev-env:
   - agent: tekton
     always_run: true
@@ -198,7 +174,6 @@ presubmits:
     name: tekton
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
-
   jenkins-x/jenkins-x-serverless:
   - agent: tekton
     always_run: true
@@ -206,7 +181,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/prow:
   - agent: tekton
     always_run: true
@@ -214,7 +188,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/tekton:
   - agent: tekton
     always_run: true
@@ -222,7 +195,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/environment-controller:
   - agent: tekton
     always_run: true
@@ -230,7 +202,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/openshift-namespace-rbac-chart:
   - agent: tekton
     always_run: true
@@ -238,7 +209,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/athens-proxy:
   - agent: tekton
     always_run: true
@@ -246,7 +216,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test(all| this),?(s+|$)
-
   jenkins-x-charts/knative-build:
   - agent: tekton
     always_run: true
@@ -254,7 +223,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/vault-operator:
   - agent: tekton
     always_run: true
@@ -262,7 +230,6 @@ presubmits:
     name: tekton  
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x-charts/jx-build-templates:
   - agent: tekton
     always_run: true
@@ -270,7 +237,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x/jenkins-x-builders:
   - agent: tekton
     always_run: true
@@ -278,7 +244,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
   jenkins-x/jenkins-x-builders-base:
   - agent: tekton
     always_run: true
@@ -286,7 +251,6 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
-
 tide:
   sync_period: 2m
   status_update_period: 1m
@@ -338,7 +302,6 @@ tide:
     - jenkins-x-charts/knative-build
     - jenkins-x-charts/jx-build-templates 
     - jenkins-x/dev-env
-
   - labels:
     - approved
     - lgtm
@@ -350,6 +313,4 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jx
-
-  target_url: https://core.jx.tekton.rawlings.it/teams/jx/pipelines
-
+  target_url: https://core.jx.tekton.rawlings.it
