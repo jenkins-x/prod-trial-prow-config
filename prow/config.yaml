@@ -49,6 +49,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-charts/nexus:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/prow:
   - agent: tekton
     context: tekton
@@ -175,6 +181,13 @@ presubmits:
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
   jenkins-x/jenkins-x-serverless:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-charts/nexus:
   - agent: tekton
     always_run: true
     context: tekton
