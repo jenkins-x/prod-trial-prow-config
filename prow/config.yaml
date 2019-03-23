@@ -283,6 +283,7 @@ tide:
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
+    - jenkins-x-charts/nexus
     - jenkins-x-charts/prow
     - jenkins-x-charts/tekton
     - jenkins-x-charts/environment-controller
@@ -306,6 +307,7 @@ tide:
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
+    - jenkins-x-charts/nexus
     - jenkins-x-charts/prow
     - jenkins-x-charts/tekton
     - jenkins-x-charts/environment-controller
