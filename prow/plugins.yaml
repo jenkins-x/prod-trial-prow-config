@@ -7,6 +7,7 @@ triggers:
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x-charts/prow
   - jenkins-x-charts/nexus
+  - jenkins-x-charts/hey
   - jenkins-x-charts/tekton
   - jenkins-x-charts/environment-controller
   - jenkins-x-charts/openshift-namespace-rbac-chart
@@ -25,6 +26,7 @@ approve:
   - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x-charts/prow
+  - jenkins-x-charts/hey
   - jenkins-x/jx
   - jenkins-x-charts/tekton
   - jenkins-x-charts/nexus
@@ -119,6 +121,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x-charts/hey:
+    - approve
+    - heart
+    - assign
+    - help
+    - hold
+    - lgtm
+    - lifecycle
+    - label
+    - size
+    - trigger
+    - wip
+    - cat
+    - dog
+    - override
   jenkins-x-charts/nexus:
   - approve
   - heart
