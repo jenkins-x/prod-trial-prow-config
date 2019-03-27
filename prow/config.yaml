@@ -9,7 +9,7 @@ branch-protection:
         jx:
           required_status_checks:
             contexts:
-              ["bdd","integration","lint"]
+              ["bdd","integration"]
         jenkins-x-builders:
           required_status_checks:
             contexts: ["tekton"]
