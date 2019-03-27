@@ -9,7 +9,7 @@ branch-protection:
         jx:
           required_status_checks:
             contexts:
-              ["bdd","integration"]
+              ["bdd","integration","lint"]
         jenkins-x-builders:
           required_status_checks:
             contexts: ["tekton"]
@@ -173,7 +173,7 @@ presubmits:
     rerun_command: /test integration
     trigger: (?m)^/test( all| integration),?(s+|$)
   - agent: tekton
-    always_run: false
+    always_run: true
     context: lint
     name: lint
     rerun_command: /test lint
