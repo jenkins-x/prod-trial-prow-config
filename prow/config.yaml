@@ -242,10 +242,10 @@ presubmits:
   jenkins-x/jx-tutorial:
   - agent: tekton
     always_run: true
-    context: bdd
-    name: bdd
-    rerun_command: /test bdd
-    trigger: (?m)^/test( all| bdd),?(s+|$)
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   - agent: tekton
     always_run: true
     context: integration
