@@ -26,6 +26,9 @@ branch-protection:
         jenkins-x-builders-base:
           required_status_checks:
             contexts: ["tekton"]
+        jenkins-x-builders-base-image:
+          required_status_checks:
+            contexts: ["tekton"]
         dev-env:
           required_status_checks:
             contexts: ["tekton"]
@@ -129,6 +132,12 @@ postsubmits:
     branches:
     - master
   jenkins-x/jenkins-x-builders-base:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jenkins-x-builders-base-image:
   - agent: tekton
     context: tekton
     name: tekton
@@ -345,6 +354,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jenkins-x-builders-base-image:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-anchore:
   - agent: tekton
     always_run: true
@@ -414,6 +430,7 @@ tide:
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
+    - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/prow
@@ -447,6 +464,7 @@ tide:
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
+    - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/prow
