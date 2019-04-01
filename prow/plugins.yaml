@@ -2,6 +2,7 @@ triggers:
 - repos:
   - jenkins-x/jenkins-x-versions
   - jenkins-x/jx
+  - jenkins-x/jx-tutorial
   - jenkins-x/jenkins-x-serverless
   - jenkins-x/jenkins-x-serverless-filerunner
   - jenkins-x/jenkins-x-builders
@@ -39,6 +40,7 @@ approve:
   - jenkins-x-charts/prow
   - jenkins-x-charts/hey
   - jenkins-x/jx
+  - jenkins-x/jx-tutorial
   - jenkins-x-charts/tekton
   - jenkins-x-charts/nexus
   - jenkins-x-charts/environment-controller
@@ -110,6 +112,21 @@ plugins:
   - dog
   - override
   jenkins-x/jx:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jx-tutorial:
   - approve
   - heart
   - assign
