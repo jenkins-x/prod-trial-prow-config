@@ -3,6 +3,7 @@ triggers:
   - jenkins-x/jenkins-x-versions
   - jenkins-x/jx
   - jenkins-x/jenkins-x-serverless
+  - jenkins-x/jenkins-x-serverless-filerunner
   - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x-charts/prow
@@ -30,6 +31,7 @@ approve:
   repos:
   - jenkins-x/jenkins-x-versions
   - jenkins-x/jenkins-x-serverless
+  - jenkins-x/jenkins-x-serverless-filerunner
   - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x-charts/prow
@@ -271,6 +273,21 @@ plugins:
   - dog
   - override
   jenkins-x/jenkins-x-serverless:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-serverless-filerunner:
   - approve
   - heart
   - assign
