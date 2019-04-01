@@ -5,6 +5,9 @@ branch-protection:
     jenkins-x-charts:
       required_status_checks:
         contexts: ["tekton"]
+    jenkins-x-apps:
+      required_status_checks:
+        contexts: ["tekton"]
     jenkins-x:
       repos:
         jx:
