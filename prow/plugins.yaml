@@ -16,6 +16,13 @@ triggers:
   - jenkins-x-charts/knative-build
   - jenkins-x-charts/jx-build-templates
   - jenkins-x/dev-env
+  - jenkins-x-apps/jx-app-sonarqube
+  - jenkins-x-apps/jx-app-cheese
+  - jenkins-x-apps/jx-app-grafana
+  - jenkins-x-apps/jx-app-istio
+  - jenkins-x-apps/jx-app-gitea
+  - jenkins-x-apps/jx-app-jenkins
+  - jenkins-x-apps/jx-app-anchore
   trusted_org: jenkins-x
   only_org_members: true
 approve:
@@ -36,6 +43,13 @@ approve:
   - jenkins-x-charts/vault-operator
   - jenkins-x-charts/knative-build
   - jenkins-x-charts/jx-build-templates
+  - jenkins-x-apps/jx-app-sonarqube
+  - jenkins-x-apps/jx-app-cheese
+  - jenkins-x-apps/jx-app-grafana
+  - jenkins-x-apps/jx-app-istio
+  - jenkins-x-apps/jx-app-gitea
+  - jenkins-x-apps/jx-app-jenkins
+  - jenkins-x-apps/jx-app-anchore
   require_self_approval: true
 blunderbuss: {}
 cat: {}
@@ -287,6 +301,111 @@ plugins:
   - dog
   - override
   jenkins-x/jenkins-x-builders-base:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-sonarqube:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-cheese:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-grafana:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-istio:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-gitea:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-jenkins:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-anchore:
   - approve
   - heart
   - assign
