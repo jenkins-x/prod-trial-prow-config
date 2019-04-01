@@ -246,12 +246,12 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-charts/hey:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-charts/nexus:
   - agent: tekton
     always_run: true
@@ -330,54 +330,54 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-anchore:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-jenkins:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-gitea:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-istio:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-grafana:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-cheese:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x-apps/jx-app-sonarqube:
-    - agent: tekton
-      always_run: true
-      context: tekton
-      name: tekton
-      rerun_command: /test this
-      trigger: (?m)^/test( all| this),?(s+|$)
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 tide:
   sync_period: 2m
   status_update_period: 1m
