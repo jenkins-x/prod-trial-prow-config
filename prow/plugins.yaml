@@ -473,21 +473,21 @@ plugins:
   - cat
   - dog
   - override
-  jenkins-x-apps/x-app-ambassador:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
+  jenkins-x-apps/jx-app-ambassador:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   cb-kubecd/multi-context-test:
   - approve
   - heart
