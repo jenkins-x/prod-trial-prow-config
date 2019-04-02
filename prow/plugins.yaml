@@ -8,6 +8,7 @@ triggers:
   - jenkins-x/jenkins-x-builders
   - jenkins-x/jenkins-x-builders-base
   - jenkins-x/jenkins-x-builders-base-image
+  - jenkins-x/ext-java-code-quality
   - jenkins-x-charts/prow
   - jenkins-x-charts/nexus
   - jenkins-x-charts/hey
@@ -42,6 +43,7 @@ approve:
   - jenkins-x-charts/hey
   - jenkins-x/jx
   - jenkins-x/jx-tutorial
+  - jenkins-x/ext-java-code-quality
   - jenkins-x-charts/tekton
   - jenkins-x-charts/nexus
   - jenkins-x-charts/environment-controller
@@ -113,6 +115,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x/ext-java-code-quality:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x/jx:
   - approve
   - heart
@@ -159,20 +176,20 @@ plugins:
   - dog
   - override
   jenkins-x-charts/hey:
-    - approve
-    - heart
-    - assign
-    - help
-    - hold
-    - lgtm
-    - lifecycle
-    - label
-    - size
-    - trigger
-    - wip
-    - cat
-    - dog
-    - override
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
   jenkins-x-charts/nexus:
   - approve
   - heart

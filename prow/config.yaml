@@ -68,12 +68,18 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/ext-java-code-quality:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/hey:
-    - agent: tekton
-      context: tekton
-      name: tekton
-      branches:
-        - master
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-charts/nexus:
   - agent: tekton
     context: tekton
@@ -205,7 +211,7 @@ postsubmits:
     context: tekton
     name: tekton
     branches:
-      - master
+    - master
 presubmits:
   jenkins-x/jenkins-x-versions:
   - agent: tekton
@@ -286,6 +292,13 @@ presubmits:
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-serverless-filerunner:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/ext-java-code-quality:
   - agent: tekton
     always_run: true
     context: tekton
@@ -473,6 +486,7 @@ tide:
     - jenkins-x/jx
     - jenkins-x/jx-tutorial
     - jenkins-x/dev-env
+    - jenkins-x/ext-java-code-quality
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
@@ -508,6 +522,7 @@ tide:
     - jenkins-x-charts/knative-build
     - jenkins-x-charts/jx-build-templates 
     - jenkins-x/dev-env
+    - jenkins-x/ext-java-code-quality
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
     - jenkins-x-apps/jx-app-grafana
