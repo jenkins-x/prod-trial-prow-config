@@ -41,6 +41,9 @@ branch-protection:
         jx-tutorial:
           required_status_checks:
             contexts: ["tekton"]
+        homebrew-jx:
+          required_status_checks:
+            contexts: ["tekton"]
     cb-kubecd:
       required_status_checks:
         contexts: ["tekton"]
@@ -176,6 +179,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/homebrew-jx:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x-apps/jx-app-sonarqube:
   - agent: tekton
     context: tekton
@@ -282,6 +291,13 @@ presubmits:
     rerun_command: /test lint
     trigger: (?m)^/test( all| lint),?(s+|$)
   jenkins-x/jx-tutorial:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/homebrew-jx:
   - agent: tekton
     always_run: true
     context: tekton
@@ -517,6 +533,7 @@ tide:
     - jenkins-x-charts/jx-build-templates
     - jenkins-x/jx
     - jenkins-x/jx-tutorial
+    - jenkins-x/homebrew-jx
     - jenkins-x/dev-env
     - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
@@ -545,6 +562,7 @@ tide:
     - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
     - jenkins-x/jx-tutorial
+    - jenkins-x/homebrew-jx
     - jenkins-x-charts/hey
     - jenkins-x-charts/nexus
     - jenkins-x-charts/prow

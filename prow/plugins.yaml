@@ -1,5 +1,6 @@
 triggers:
 - repos:
+  - jenkins-x/homebrew-jx
   - jenkins-x/jenkins-x-versions
   - jenkins-x/jx
   - jenkins-x/jx-tutorial
@@ -43,6 +44,7 @@ approve:
   - jenkins-x/jenkins-x-builders-base-image
   - jenkins-x-charts/prow
   - jenkins-x-charts/hey
+  - jenkins-x/homebrew-jx
   - jenkins-x/jx
   - jenkins-x/jx-tutorial
   - jenkins-x/updatebot
@@ -165,6 +167,21 @@ plugins:
   - dog
   - override
   jenkins-x/jx-tutorial:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/homebrew-jx:
   - approve
   - heart
   - assign
