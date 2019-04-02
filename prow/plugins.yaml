@@ -3,6 +3,7 @@ triggers:
   - jenkins-x/homebrew-jx
   - jenkins-x/jenkins-x-versions
   - jenkins-x/jx
+  - jenkins-x/jx-docs
   - jenkins-x/jx-tutorial
   - jenkins-x/jenkins-x-image
   - jenkins-x/jenkins-x-serverless
@@ -48,6 +49,7 @@ approve:
   - jenkins-x-charts/hey
   - jenkins-x/homebrew-jx
   - jenkins-x/jx
+  - jenkins-x/jx-docs
   - jenkins-x/jx-tutorial
   - jenkins-x/updatebot
   - jenkins-x/ext-java-code-quality
@@ -154,6 +156,21 @@ plugins:
   - dog
   - override
   jenkins-x/jx:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jx-docs:
   - approve
   - heart
   - assign
