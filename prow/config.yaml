@@ -251,13 +251,6 @@ presubmits:
     name: bdd
     rerun_command: /test bdd
     trigger: (?m)^/test( all| bdd),?(s+|$)
-  jenkins-x/jx-tutorial:
-  - agent: tekton
-    always_run: true
-    context: tekton
-    name: tekton
-    rerun_command: /test this
-    trigger: (?m)^/test( all| this),?(s+|$)
   - agent: tekton
     always_run: true
     context: integration
@@ -270,6 +263,13 @@ presubmits:
     name: lint
     rerun_command: /test lint
     trigger: (?m)^/test( all| lint),?(s+|$)
+  jenkins-x/jx-tutorial:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   rawlingsj/jx:
   - agent: tekton
     always_run: false
