@@ -20,6 +20,7 @@ triggers:
   - jenkins-x-charts/knative-build
   - jenkins-x-charts/jx-build-templates
   - jenkins-x/dev-env
+  - jenkins-x/updatebot
   - jenkins-x-apps/jx-app-sonarqube
   - jenkins-x-apps/jx-app-cheese
   - jenkins-x-apps/jx-app-grafana
@@ -43,6 +44,7 @@ approve:
   - jenkins-x-charts/hey
   - jenkins-x/jx
   - jenkins-x/jx-tutorial
+  - jenkins-x/updatebot
   - jenkins-x/ext-java-code-quality
   - jenkins-x-charts/tekton
   - jenkins-x-charts/nexus
@@ -101,6 +103,21 @@ plugins:
   - dog
   - override
   jenkins-x/dev-env:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/updatebot:
   - approve
   - heart
   - assign
