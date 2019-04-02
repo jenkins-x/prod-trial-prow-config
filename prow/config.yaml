@@ -32,6 +32,9 @@ branch-protection:
         dev-env:
           required_status_checks:
             contexts: ["tekton"]
+        updatebot:
+          required_status_checks:
+            contexts: ["tekton"]
         jx-tutorial:
           required_status_checks:
             contexts: ["tekton"]
@@ -63,6 +66,12 @@ postsubmits:
     branches:
     - master
   jenkins-x/dev-env:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/updatebot:
   - agent: tekton
     context: tekton
     name: tekton
@@ -284,6 +293,13 @@ presubmits:
     name: tekton
     rerun_command: /test tekton
     trigger: (?m)^/test( all| tekton),?(s+|$)
+  jenkins-x/updatebot:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test tekton
+    trigger: (?m)^/test( all| tekton),?(s+|$)
   jenkins-x/jenkins-x-serverless:
   - agent: tekton
     always_run: true
@@ -486,6 +502,7 @@ tide:
     - jenkins-x/jx
     - jenkins-x/jx-tutorial
     - jenkins-x/dev-env
+    - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
@@ -522,6 +539,7 @@ tide:
     - jenkins-x-charts/knative-build
     - jenkins-x-charts/jx-build-templates 
     - jenkins-x/dev-env
+    - jenkins-x/updatebot
     - jenkins-x/ext-java-code-quality
     - jenkins-x-apps/jx-app-sonarqube
     - jenkins-x-apps/jx-app-cheese
