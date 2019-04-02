@@ -26,6 +26,7 @@ triggers:
   - jenkins-x-apps/jx-app-gitea
   - jenkins-x-apps/jx-app-jenkins
   - jenkins-x-apps/jx-app-anchore
+  - jenkins-x-apps/jx-app-ambassador
   trusted_org: jenkins-x
   only_org_members: true
 approve:
@@ -56,6 +57,7 @@ approve:
   - jenkins-x-apps/jx-app-gitea
   - jenkins-x-apps/jx-app-jenkins
   - jenkins-x-apps/jx-app-anchore
+  - jenkins-x-apps/jx-app-ambassador
   require_self_approval: true
 blunderbuss: {}
 cat: {}
@@ -471,6 +473,21 @@ plugins:
   - cat
   - dog
   - override
+  jenkins-x-apps/x-app-ambassador:
+    - approve
+    - heart
+    - assign
+    - help
+    - hold
+    - lgtm
+    - lifecycle
+    - label
+    - size
+    - trigger
+    - wip
+    - cat
+    - dog
+    - override
   cb-kubecd/multi-context-test:
   - approve
   - heart
