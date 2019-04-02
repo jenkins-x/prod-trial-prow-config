@@ -29,6 +29,7 @@ triggers:
   - jenkins-x-apps/jx-app-jenkins
   - jenkins-x-apps/jx-app-anchore
   - jenkins-x-apps/jx-app-ambassador
+  - jenkins-x-apps/jx-app-athens
   trusted_org: jenkins-x
   only_org_members: true
 approve:
@@ -62,6 +63,7 @@ approve:
   - jenkins-x-apps/jx-app-jenkins
   - jenkins-x-apps/jx-app-anchore
   - jenkins-x-apps/jx-app-ambassador
+  - jenkins-x-apps/jx-app-athens
   require_self_approval: true
 blunderbuss: {}
 cat: {}
@@ -508,6 +510,21 @@ plugins:
   - dog
   - override
   jenkins-x-apps/jx-app-ambassador:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x-apps/jx-app-athens:
   - approve
   - heart
   - assign

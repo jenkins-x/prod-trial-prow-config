@@ -35,6 +35,9 @@ branch-protection:
         updatebot:
           required_status_checks:
             contexts: ["tekton"]
+        ext-java-code-quality:
+          required_status_checks:
+            contexts: ["tekton"]
         jx-tutorial:
           required_status_checks:
             contexts: ["tekton"]
@@ -216,6 +219,12 @@ postsubmits:
     branches:
     - master
   jenkins-x-apps/jx-app-ambassador:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x-apps/jx-app-athens:
   - agent: tekton
     context: tekton
     name: tekton
@@ -468,6 +477,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-athens:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 tide:
   sync_period: 2m
   status_update_period: 1m
@@ -512,6 +528,7 @@ tide:
     - jenkins-x-apps/jx-app-jenkins
     - jenkins-x-apps/jx-app-anchore
     - jenkins-x-apps/jx-app-ambassador
+    - jenkins-x-apps/jx-app-athens
   - labels:
     - approved
     missingLabels:
@@ -549,6 +566,7 @@ tide:
     - jenkins-x-apps/jx-app-jenkins
     - jenkins-x-apps/jx-app-anchore
     - jenkins-x-apps/jx-app-ambassador
+    - jenkins-x-apps/jx-app-athens
   - labels:
     - approved
     - lgtm
