@@ -41,6 +41,9 @@ branch-protection:
         ext-java-code-quality:
           required_status_checks:
             contexts: ["tekton"]
+        jx-docs:
+          required_status_checks:
+            contexts: ["tekton"]
         jx-tutorial:
           required_status_checks:
             contexts: ["tekton"]
@@ -182,6 +185,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x/jx-docs:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
   jenkins-x/jx-tutorial:
   - agent: tekton
     context: tekton
@@ -299,6 +308,13 @@ presubmits:
     name: lint
     rerun_command: /test lint
     trigger: (?m)^/test( all| lint),?(s+|$)
+  jenkins-x/jx-docs:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jx-tutorial:
   - agent: tekton
     always_run: true
@@ -549,6 +565,7 @@ tide:
     - jenkins-x-charts/knative-build
     - jenkins-x-charts/jx-build-templates
     - jenkins-x/jx
+    - jenkins-x/jx-docs
     - jenkins-x/jx-tutorial
     - jenkins-x/homebrew-jx
     - jenkins-x/dev-env
@@ -572,13 +589,13 @@ tide:
     - needs-ok-to-test
     - needs-rebase
     repos:
-    - jenkins-x/dummy
     - jenkins-x/jenkins-x-image
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-builders
     - jenkins-x/jenkins-x-builders-base
     - jenkins-x/jenkins-x-builders-base-image
+    - jenkins-x/jx-docs
     - jenkins-x/jx-tutorial
     - jenkins-x/homebrew-jx
     - jenkins-x-charts/hey
