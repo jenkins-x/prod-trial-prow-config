@@ -4,6 +4,7 @@ triggers:
   - jenkins-x/jenkins-x-versions
   - jenkins-x/jx
   - jenkins-x/jx-tutorial
+  - jenkins-x/jenkins-x-image
   - jenkins-x/jenkins-x-serverless
   - jenkins-x/jenkins-x-serverless-filerunner
   - jenkins-x/jenkins-x-builders
@@ -37,6 +38,7 @@ approve:
 - lgtm_acts_as_approve: true
   repos:
   - jenkins-x/jenkins-x-versions
+  - jenkins-x/jenkins-x-image
   - jenkins-x/jenkins-x-serverless
   - jenkins-x/jenkins-x-serverless-filerunner
   - jenkins-x/jenkins-x-builders
@@ -332,6 +334,21 @@ plugins:
   - dog
   - override
   jenkins-x-charts/jx-build-templates:
+  - approve
+  - heart
+  - assign
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - label
+  - size
+  - trigger
+  - wip
+  - cat
+  - dog
+  - override
+  jenkins-x/jenkins-x-image:
   - approve
   - heart
   - assign
