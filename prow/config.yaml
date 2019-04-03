@@ -20,6 +20,9 @@ branch-protection:
         jenkins-x-image:
           required_status_checks:
             contexts: ["tekton"]
+        jenkins-x-platform:
+          required_status_checks:
+            contexts: ["tekton"]
         jenkins-x-serverless:
           required_status_checks:
             contexts: ["tekton"]
@@ -66,6 +69,12 @@ sinker:
 periodics:
 postsubmits:
   jenkins-x/jenkins-x-image:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
+  jenkins-x/jenkins-x-platform:
   - agent: tekton
     context: tekton
     name: tekton
@@ -357,6 +366,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x/jenkins-x-platform:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
   jenkins-x/jenkins-x-serverless:
   - agent: tekton
     always_run: true
@@ -549,6 +565,7 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jenkins-x-image
+    - jenkins-x/jenkins-x-platform
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-builders
@@ -590,6 +607,7 @@ tide:
     - needs-rebase
     repos:
     - jenkins-x/jenkins-x-image
+    - jenkins-x/jenkins-x-platform
     - jenkins-x/jenkins-x-serverless
     - jenkins-x/jenkins-x-serverless-filerunner
     - jenkins-x/jenkins-x-builders
