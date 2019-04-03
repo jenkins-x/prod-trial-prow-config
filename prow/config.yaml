@@ -266,6 +266,12 @@ postsubmits:
     name: tekton
     branches:
     - master
+  jenkins-x-apps/jx-app-test-lifecycle:
+  - agent: tekton
+    context: tekton
+    name: tekton
+    branches:
+    - master
 presubmits:
   jenkins-x/jenkins-x-versions:
   - agent: tekton
@@ -548,6 +554,13 @@ presubmits:
     name: tekton
     rerun_command: /test this
     trigger: (?m)^/test( all| this),?(s+|$)
+  jenkins-x-apps/jx-app-test-lifecycle:
+  - agent: tekton
+    always_run: true
+    context: tekton
+    name: tekton
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(s+|$)
 tide:
   sync_period: 2m
   status_update_period: 1m
@@ -597,6 +610,7 @@ tide:
     - jenkins-x-apps/jx-app-anchore
     - jenkins-x-apps/jx-app-ambassador
     - jenkins-x-apps/jx-app-athens
+    - jenkins-x-apps/jx-app-test-lifecycle
   - labels:
     - approved
     missingLabels:
@@ -638,6 +652,7 @@ tide:
     - jenkins-x-apps/jx-app-anchore
     - jenkins-x-apps/jx-app-ambassador
     - jenkins-x-apps/jx-app-athens
+    - jenkins-x-apps/jx-app-test-lifecycle
   - labels:
     - approved
     - lgtm
