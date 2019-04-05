@@ -1,5 +1,5 @@
 plank:
-  report_template: '{{if eq .Spec.Type "presubmit"}}[Build Logs](https://core.jx.tekton.rawlings/teams/{{.Spec.Namespace}}/projects/browse/{{.Spec.Refs.Repo}}/PR-{{.Spec.Refs.Pulls[0].number}}/{{.Number}}) {{else if eq .Spec.Type "batch"}} Run `jx get build log --owner {{.Spec.Refs.Org}} --repo {{.Spec.Refs.Repo}} --branch batch --build {{.Number}}` {{end}}'
+  #report_template: '{{if eq .Spec.Type "presubmit"}}[Build Logs](https://core.jx.tekton.rawlings/teams/{{.Spec.Namespace}}/projects/browse/{{.Spec.Refs.Repo}}/PR-{{.Spec.Refs.Pulls[0].number}}/{{.Number}}) {{else if eq .Spec.Type "batch"}} Run `jx get build log --owner {{.Spec.Refs.Org}} --repo {{.Spec.Refs.Repo}} --branch batch --build {{.Number}}` {{end}}'
 log_level: debug
 branch-protection:
   protect: true
