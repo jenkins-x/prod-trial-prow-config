@@ -1,3 +1,5 @@
+plank:
+  report_template: http://core.jx.tekton.rawlings.it
 log_level: debug
 branch-protection:
   protect: true
